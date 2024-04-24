@@ -13,8 +13,9 @@ const postUser = async (req, res) => {
        const {email} = user;
        const isEmailExist = await User.findOne({email});
        if(isEmailExist) return res.status(400).send('Email already exist'); 
-       const savaData = await user.save();
-       return res.status(201).json({message:"data stored successfully",data:savaData});
+       await user.save();
+       res.redirect("/users")
+      //  return res.status(201).json({message:"data stored successfully",data:savaData});
     } catch (error) {
           console.log(error)
           return res.status(500).json({message: "Internal Server Error"})
@@ -25,7 +26,7 @@ const postUser = async (req, res) => {
 const readuser = async (req, res) => {
   try {
   let user =  await User.find();
-    res.render("read",{user})
+    res.render("user",{user})
   } catch (error) {
     console.log(error);
     return res.status(500).json({ msg: "server error", error: error });

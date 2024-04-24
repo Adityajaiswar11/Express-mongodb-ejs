@@ -8,7 +8,7 @@ router.post("/create",postUser);
 router.get("/",createUser)
 router.put("/update/:id",update)
 router.get("/delete/:id",deleteById);
-router.get("/read",readuser)
+router.get("/users",readuser)
 
 // router.get("/signup",signup)
 // router.get("/login",login)
