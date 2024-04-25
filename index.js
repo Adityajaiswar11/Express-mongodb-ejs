@@ -28,7 +28,7 @@ mongoose.connect(process.env.DATABASE_NAME)
  })
 const routesPath = "./routes";
 const routeFiles = fs.readdirSync(routesPath);
-routeFiles.map((r) => app.use("/", require(`./routes/${r}`)));
+routeFiles.map((r) => app.use(require(`./routes/${r}`)));
 
 const port = 8080;
 
