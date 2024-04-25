@@ -3,10 +3,10 @@ const express = require('express');
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 const cors = require('cors');
-const router = require('./routes/route');
 const app = express();
 const path = require('path');
 require("dotenv").config()
+const fs = require('fs')
 
 //middleware
 app.set("view engine", "ejs" )
@@ -24,14 +24,16 @@ mongoose.connect(process.env.DATABASE_NAME)
     .catch((err) => console.log(err))
 
 
-const PORT = 8080
+const port = 3000
 
-app.use(router)
+const routesPath = "./routes";
+const routeFiles = fs.readdirSync(routesPath);
+routeFiles.map((r) => app.use("/", require(`./routes/${r}`)));
 
 app.get('/', (req, res) => {
   res.render('index')
 })
 
-app.listen(PORT,()=>{
-   console.log(`server is listening on ${PORT}`)
+app.listen(8080,()=>{
+   console.log(`server is listening on ${port}`)
 });
