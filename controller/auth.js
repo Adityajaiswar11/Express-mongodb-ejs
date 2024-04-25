@@ -58,7 +58,7 @@ const deleteById = async(req, res) => {
   try {
     const id = req.params.id;
   await User.findByIdAndDelete(id);
-   return res.redirect("/read")
+   return res.redirect("/users")
     // return res
     //   .status(200)
     //   .json({ msg: "data deleted successfully", status: 200 });

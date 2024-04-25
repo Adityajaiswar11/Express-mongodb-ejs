@@ -10,7 +10,7 @@
     <div class=" bg-zinc-300 h-screen w-full flex justify-center items-center px-5">
           <div class="w-[25rem] min-h-[23.5rem] rounded-md bg-white px-8 py-4">
             <h1 class="text-center text-2xl font-semibold opacity-80">Update User</h1>
-            <form action="/update/<%=user._id %>" method="post" class="mt-8">
+            <form action="/update/<%=user._id %>" method="put" class="mt-8">
                 <input type="text" value="<%=user.name %>" name="name" class="block w-full py-3 mt-5 px-2 text-sm  rounded-md outline-none font-semibold border-2 border-slate-500" placeholder="Enter your  Name">
                 <input type="email" value="<%=user.email %>" name="email" class="block w-full py-3 mt-5 px-2 text-sm rounded-md outline-none  font-semibold border-2 border-slate-500" placeholder="Enter your Email">
                 <input type="text" value="<%=user.image %>" name="image" class="block w-full py-3 mt-5 px-2 text-md  rounded-md outline-none font-semibold border-2 border-slate-500  text-black/80" placeholder="Upload Image">

@@ -6,7 +6,7 @@ const router = express.Router();
 //import controller
 router.post("/create",postUser);
 router.get("/",createUser)
-router.post("/update/:id",update)
+router.put("/update/:id",update)
 router.get("/update/:id",updataEjs)
 router.get("/delete/:id",deleteById);
 router.get("/users",readuser)
