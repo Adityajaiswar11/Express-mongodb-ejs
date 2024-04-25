@@ -24,7 +24,7 @@ mongoose.connect(process.env.DATABASE_NAME)
     .catch((err) => console.log(err))
 
  app.get("/",(req,res)=>{
-     res.send("wefefff")
+     res.render("index")
  })
 const routesPath = "./routes";
 const routeFiles = fs.readdirSync(routesPath);
