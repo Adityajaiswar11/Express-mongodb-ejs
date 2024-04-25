@@ -23,7 +23,9 @@ mongoose.connect(process.env.DATABASE_NAME)
     .then(() => console.log('Mongodb connected...'))
     .catch((err) => console.log(err))
 
-
+ app.get("/",(req,res)=>{
+     res.send("wefefff")
+ })
 const routesPath = "./routes";
 const routeFiles = fs.readdirSync(routesPath);
 routeFiles.map((r) => app.use("/", require(`./routes/${r}`)));
