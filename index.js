@@ -24,16 +24,12 @@ mongoose.connect(process.env.DATABASE_NAME)
     .catch((err) => console.log(err))
 
 
-const port = 3000
-
 const routesPath = "./routes";
 const routeFiles = fs.readdirSync(routesPath);
 routeFiles.map((r) => app.use("/", require(`./routes/${r}`)));
 
-app.get('/', (req, res) => {
-  res.render('index')
-})
+const port = 8080;
 
-app.listen(8080,()=>{
+app.listen(port,()=>{
    console.log(`server is listening on ${port}`)
 });
