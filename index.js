@@ -28,6 +28,10 @@ const PORT = 8080
 
 app.use(router)
 
+app.get('/', (req, res) => {
+  res.render('index')
+})
+
 app.listen(PORT,()=>{
    console.log(`server is listening on ${PORT}`)
 });
