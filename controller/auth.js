@@ -33,12 +33,20 @@ const readuser = async (req, res) => {
   }
 };
 
+const updataEjs = async(req,res)=>{
+    id = req.params.id;
+    const user = await User.findByIdAndUpdate(id, req.body, { new: true });
+    if(!user) return res.redirect("/")
+    await user.save()
+    res.render(`update`,{user})
+}
 const update = async (req, res) => {
   try {
     const id = req.params.id;
     const user = await User.findByIdAndUpdate(id, req.body, { new: true });
-    res.redirect("/",{user})
-    // return res.status(200).json({ msg: "success", status: 200, data: user });
+    await user.save()
+    res.redirect("/users")
+    // return res.status(20  res.redirect("/")0).json({ msg: "success", status: 200, data: user });
   } catch (error) {
     console.log(error);
     return res
@@ -69,4 +77,4 @@ const signup = (req,res)=>{
 const login = (req,res)=>{
   return res.render('login')
 }
-module.exports = { postUser, readuser, update,signup,login ,createUser,deleteById};
+module.exports = { postUser, readuser, update,signup,login ,createUser,deleteById,updataEjs};
